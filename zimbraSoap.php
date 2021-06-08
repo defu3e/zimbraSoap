@@ -4,16 +4,16 @@
 define ("ZM_ADM_LOGIN","test_login");	 // Zimbra admin login
 define ("ZM_ADM_PASS", "test_password"); // Zimbra admin password
 
-define ("WSDL", 	 "https://mail.test.ru/service/wsdl/ZimbraAdminService.wsdl");
-define ("SOAP_URL",	 "https://mail.test.ru/service/admin/soap");
+define ("WSDL",	    "https://mail.test.ru/service/wsdl/ZimbraAdminService.wsdl");
+define ("SOAP_URL", "https://mail.test.ru/service/admin/soap");
 
 define ("EVERYONE_DL", "everyone@test.ru"); // delivery list 1 
 
 class soap extends SoapClient {
 	public function __construct($wsdl, $opt)
-    {
-        parent::__construct($wsdl, $opt);
-    }
+	{
+        	parent::__construct($wsdl, $opt);
+	}
 	
 	function auth ($login, $pass) 
 	{
@@ -54,13 +54,13 @@ class soap extends SoapClient {
 		catch (SoapFault $e) 
 		{	
 			throw new Exception("Error. Response: " . parent::__getLastResponse()); 
-			return 0;
 		}
 				
 		return $res->a[0]->_;
 	}
 		
-	function postXML ($method, $xml) {
+	function postXML ($method, $xml) 
+	{
 		$params = new SoapVar($xml, XSD_ANYXML);
 		try 
 		{
@@ -73,7 +73,8 @@ class soap extends SoapClient {
 		return $res;
 	}
 	
-	function getDL_id ($name) {
+	function getDL_id ($name) 
+	{
 		$params = 
 		[
 			'dl'=> 
@@ -87,7 +88,8 @@ class soap extends SoapClient {
 		return $res->dl->id;
 	}
 	
-	function addToDL ($email, $dlName) {
+	function addToDL ($email, $dlName) 
+	{
 		$dl_id  = $this->getDL_id($dlName);
 		$params = 
 		[
