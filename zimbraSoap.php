@@ -1,10 +1,10 @@
 <?php
 // TESTED ON Zimbra 8.8.15
 
-define ("ZM_ADM_LOGIN","test_login");		 // Zimbra admin login
+define ("ZM_ADM_LOGIN","test_login");	 // Zimbra admin login
 define ("ZM_ADM_PASS", "test_password"); // Zimbra admin password
 
-define ("WSDL", 	   "https://mail.test.ru/service/wsdl/ZimbraAdminService.wsdl");
+define ("WSDL", 	 "https://mail.test.ru/service/wsdl/ZimbraAdminService.wsdl");
 define ("SOAP_URL",	 "https://mail.test.ru/service/admin/soap");
 
 define ("EVERYONE_DL", "everyone@test.ru"); // delivery list 1 
